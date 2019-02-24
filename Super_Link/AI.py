@@ -4,11 +4,9 @@ SIZE = 1.0
 
 # Program Start
 import sys, copy
-
 sys.path.append("..")
 import CtrlTool as ctl
 import cv2
-import numpy as np
 
 # Setting
 global THRESHOLD, DELTA
