@@ -1,0 +1,7 @@
+rules:
+  - id: attr-mutable-initializer
+    languages:
+      - python
+    message: Insecure function being used to capitalize strings
+    pattern: $TXT.capitalize()
+    severity: WARNING
