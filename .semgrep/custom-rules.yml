@@ -1,5 +1,5 @@
 rules:
-  - id: attr-mutable-initializer
+  - id: insecure capitalize function
     languages:
       - python
     message: Insecure function being used to capitalize strings
