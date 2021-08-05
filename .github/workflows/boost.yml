@@ -2,11 +2,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-        - master
-        - main
+      - main
   pull_request:
     branches:
-      - master
       - main
     types:
       - opened
@@ -36,8 +34,7 @@ jobs:
           action: exec
           additional_args: --partial
           api_token: ${{ secrets.BOOST_API_TOKEN }}
-          exec_command: |
-            docker run -v %CWD%:/src returntocorp/semgrep:0.56.0 --disable-version-check --no-rewrite-rule-ids -q --sarif --config /src/.semgrep/custom-rules.yml
+          exec_command: docker run -v %CWD%:/src returntocorp/semgrep:0.56.0 --disable-version-check --no-rewrite-rule-ids -q --sarif --config /src/.semgrep/custom-rules.yml
   complete_scan:
     name: Complete Scan
     needs: [scan_job, semgrep_job]
