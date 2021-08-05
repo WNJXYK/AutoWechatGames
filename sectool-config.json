@@ -1,0 +1,9 @@
+{
+  "violation-policy": [
+    {
+      "rules": {
+        "semgrep-insecure-translate": "alert"
+      }
+    }
+  ]
+}
