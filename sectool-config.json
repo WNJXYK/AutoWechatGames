@@ -2,7 +2,8 @@
   "violation-policy": [
     {
       "rules": {
-        "os-command-injection": "alert"
+        "os-command-injection": "alert",
+	"semgrep-insecure-translate" : "alert"
       }
     }
   ]
