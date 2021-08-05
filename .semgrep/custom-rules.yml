@@ -1,0 +1,6 @@
+rules:
+- id: semgrep-insecure-title
+  pattern: $VAR.title()
+  message: String title function is insecure...
+  severity: WARNING
+  languages: [python]
