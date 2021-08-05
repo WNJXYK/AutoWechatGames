@@ -1,0 +1,9 @@
+{
+  "violation-policy": [
+    {
+      "rules": {
+        "os-command-injection": "alert"
+      }
+    }
+  ]
+}
