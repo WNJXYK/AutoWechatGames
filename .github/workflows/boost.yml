@@ -1,0 +1,38 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+        - master
+        - main
+  pull_request:
+    branches:
+      - master
+      - main
+    types:
+      - opened
+      - synchronize
+jobs:
+  scan_job:
+    name: Boost Security Scanner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: BoostSecurity Scanner
+        uses: peaudecastor/boost-security-scanner-github@v2
+        with:
+          action: scan
+          additional_args: --partial
+          api_token: ${{ secrets.BOOST_API_TOKEN }}
+  complete_scan:
+    name: Complete Scan
+    needs: [scan_job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Complete Scan
+        uses: peaudecastor/boost-security-scanner-github@v2
+        with:
+          action: complete
+          api_token: ${{ secrets.BOOST_API_TOKEN }}
