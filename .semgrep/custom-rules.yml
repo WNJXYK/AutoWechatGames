@@ -4,3 +4,8 @@ rules:
   message: String title function is insecure...
   severity: WARNING
   languages: [python]
+- id: semgrep-insecure-translate
+  pattern: $VAR.translate(...)
+  message: String translate function is insecure.
+  severity: WARNING
+  languages: [python]
